@@ -18,6 +18,7 @@ Authentication in MCP is designed to be flexible and secure, supporting various 
 
 - OAuth 2.0 for standardized authorization flows
 - Credential-based authentication for API keys and similar secrets
+- Decentralized identity authentication using did:wba method
 
 Other authentication schemes may also be implemented by clients and servers as extensions to the base protocol.
 
@@ -31,6 +32,7 @@ Clients that support authentication **MUST** declare their supported authenticat
     "auth": {
       "oauth2": true,
       "credential": true,
+      "didwba": true
     }
   }
 }
@@ -40,6 +42,7 @@ The `auth` capability can include any combination of the following authenticatio
 
 - `oauth2`: Indicates support for [OAuth 2.0]({{< ref "/specification/auth/oauth2" >}}) authentication flows
 - `credential`: Indicates support for [credential-based]({{< ref "/specification/auth/credential" >}}) authentication
+- `didwba`: Indicates support for [did:wba]({{< ref "/specification/auth/didwba" >}}) authentication
 
 Clients that support or wish to use non-standard authentication schemes can declare them as experimental capabilities:
 
@@ -71,6 +74,10 @@ Servers that support authentication **MUST** include their supported authenticat
       "credential": {
         "list": true
       },
+      "didwba": {
+        "authorize": true,
+        "revoke": true
+      }
     }
   }
 }
