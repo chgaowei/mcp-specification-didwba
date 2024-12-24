@@ -1776,6 +1776,35 @@
                         "type": "object"
                     },
                     "description": "Experimental, non-standard capabilities that the server supports.",
+                    "properties": {
+                        "auth": {
+                            "properties": {
+                                "didwba": {
+                                    "description": "Whether the server supports did:wba authentication.",
+                                    "properties": {
+                                        "authorize": {
+                                            "additionalProperties": {
+                                                "additionalProperties": true,
+                                                "properties": {},
+                                                "type": "object"
+                                            },
+                                            "type": "object"
+                                        },
+                                        "revoke": {
+                                            "additionalProperties": {
+                                                "additionalProperties": true,
+                                                "properties": {},
+                                                "type": "object"
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
                     "type": "object"
                 },
                 "logging": {
