@@ -212,7 +212,17 @@ export interface ServerCapabilities {
   /**
    * Experimental, non-standard capabilities that the server supports.
    */
-  experimental?: { [key: string]: object };
+  experimental?: { 
+    auth?: {
+      /**
+       * Whether the server supports did:wba authentication.
+       */
+      didwba?: {
+        authorize?: { [key: string]: object };
+        revoke?: { [key: string]: object };
+      };
+    };
+  };
   /**
    * Present if the server supports sending log messages to the client.
    */
